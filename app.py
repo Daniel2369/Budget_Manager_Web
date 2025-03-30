@@ -22,10 +22,10 @@ def index(): # main index func
     balance: int = 0 # Initialize balance
 
     for income in incomes:
-        balance += incomes["amount"]
+        balance += income["amount"]
 
     for expense in expenses:
-        balance -= expenses["amount"]
+        balance -= expense["amount"]
 
     return render_template("index.html", incomes=incomes, expenses=expenses, balance=balance)
 
@@ -79,7 +79,7 @@ def add_expense():
             "amount": amount,
             "description": description
         }
-
+        expenses.append(new_expense) # append the new dict to the expenses list
         flash("Expense added successfully!", "success")
 
     except ValueError:
