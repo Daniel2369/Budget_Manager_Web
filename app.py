@@ -29,6 +29,13 @@ def index(): # main index func
 
     return render_template("index.html", incomes=incomes, expenses=expenses, balance=balance)
 
+@app.route("/incomes")  # Incomes page
+def incomes_page():
+    return render_template("incomes.html", incomes=incomes)
+
+@app.route("/expenses")  # Expenses page
+def expenses_page():
+    return render_template("expenses.html", expenses=expenses)
 
 @app.route("/add_income", methods=["POST"]) # define
 def add_income(): # add_income func
